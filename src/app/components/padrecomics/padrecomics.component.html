@@ -1,0 +1,15 @@
+<div>
+    <h1>Lista de comics </h1>
+    <div *ngIf="favorito">
+        <h1>
+            Comic Favorito: {{favorito}}
+        </h1>
+    </div>
+        <div  *ngFor="let comic of comics">
+        <div class="contenedor" [ngClass]="favorito == comic.nombre ? 'fav':''">
+            <app-hijocomic [C]="comic"
+            (seleccionarFavoritoPadre)="seleccionarFavoritoPadre($event)"
+            ></app-hijocomic>
+        </div>
+        </div>
+</div>
