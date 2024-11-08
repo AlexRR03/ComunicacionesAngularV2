@@ -1,3 +1,12 @@
 .fav{
     background-color: lightgreen;
 }
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-template-rows: repeat(3, 1fr);    /* Tres filas */
+    gap: 10px;                             /* Espacio entre los ítems */
+    width: 300px;                          /* Ancho del contenedor */
+    height: 300px;                         /* Alto del contenedor */
+  }

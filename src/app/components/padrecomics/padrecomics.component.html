@@ -1,15 +1,34 @@
 <div>
     <h1>Lista de comics </h1>
-    <div *ngIf="favorito">
-        <h1>
-            Comic Favorito: {{favorito}}
-        </h1>
-    </div>
-        <div  *ngFor="let comic of comics">
-        <div class="contenedor" [ngClass]="favorito == comic.nombre ? 'fav':''">
-            <app-hijocomic [C]="comic"
-            (seleccionarFavoritoPadre)="seleccionarFavoritoPadre($event)"
-            ></app-hijocomic>
+    <form #comicForm ="ngForm" >
+        <label>Nombre:</label>
+        <input type="text"
+        name="cajanombre"
+        #cajanombre
+        />
+        <label>Imagen:</label>
+        <input type="text"
+        name="cajaimagen"
+        #cajaimagen
+        />
+        <label>Descripcion:</label>
+        <input type="text"
+        name="cajadescripcion"
+        #cajadescripcion
+        />
+        <button (click)="nuevoComic()">Crear Nuevo</button>
+    </form>
+        <div *ngIf="favorito">
+            <h1>
+                Comic Favorito: {{favorito}}
+            </h1>
         </div>
+        <div class="contenedor"  *ngFor="let comic of comics">
+            <div  [ngClass]="favorito == comic.nombre ? 'fav ':''">
+                <app-hijocomic  [C]="comic"
+                (seleccionarFavoritoPadre)="seleccionarFavoritoPadre($event)"
+                ></app-hijocomic>
+            </div>
         </div>
+    
 </div>
